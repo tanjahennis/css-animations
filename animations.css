@@ -21,7 +21,7 @@
 
   animation-name: youLost;
   animation-duration: 3s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 4;
   animation-direction: alternate;
 }
 
@@ -84,9 +84,6 @@
   animation-duration: 5s;
 }
 
-
-
-
 @keyframes slicedUp {
   100% {
     transform: translateY(-600px) rotate3d(1,1,1,1240deg);
@@ -110,16 +107,43 @@
 }
 
 .animation {
-  position: relative;
-  background-color: teal;
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
+	position:relative;
+	width:6em;
+	height:6em;
+	margin-top:1em;
+	background-color:orange;
+	border-radius:50%;
+	box-shadow:inset -.25em -.25em #CC8400;
 
   animation-name: moveRight;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-direction: forwards;
+}
+.animation:before {
+	content:'';
+	position:absolute;
+	top:-.5em;
+	left:3em;
+	height:0;
+	width:0;
+	border:1.5em solid transparent;
+	border-left:.5em solid brown;
+	border-top:0;
+	transform:rotate(20deg);
+	transform-origin:bottom left;
+}
+.animation:after {
+	content:'';
+	position:absolute;
+	top:-.5em;
+	left:1.5em;
+	height:0;
+	width:0;
+	border:.75em solid green;
+	border-bottom-color:darkgreen;
+	border-left-color:darkgreen;
+	border-radius:0 50%;
 }
 
 @keyframes moveRight {
