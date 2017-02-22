@@ -15,8 +15,10 @@ function startAnimation() {
 }
 
 function initializeGame() {
-  let score = 0;
   let mouseDown = false;
+  let score = 0;
+  updateScore();
+  let gameIsRunning = true;
 
   document.addEventListener('mousedown', function() {
     mouseDown = true;
@@ -28,14 +30,26 @@ function initializeGame() {
 
   (function loop() {
       let rand = Math.round(Math.random() * 3000);
+
       setTimeout(function() {
+        if(!gameIsRunning) {
+          return;
+        }
         trackAnimation(startAnimation());
         loop();
+
       }, rand);
     }
   )();
 
   function trackAnimation(animation) {
+    animation.addEventListener('animationend', function(event) {
+      event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+
+      score--;
+      updateScore();
+    });
+
     animation.addEventListener('mouseleave', function(event) {
       if(mouseDown) {
         const { left, top } = animation.getBoundingClientRect();
@@ -68,13 +82,24 @@ function initializeGame() {
 
         score++;
         updateScore();
-
       }
     });
+  }
 
-    function updateScore() {
-      document.querySelector('.score').innerHTML = `Score: ${score}`;
+  function updateScore() {
+    document.querySelector('.score').innerHTML = `Score: ${score}`;
 
+    if(score < 0) {
+      gameIsRunning = false;
+
+      let node = document.querySelector('.mainDiv');
+
+      while (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
+      }
+
+      document.querySelector('.youlost').innerHTML = '<div class="gameOver">Game over.</div>'
     }
+
   }
 }
