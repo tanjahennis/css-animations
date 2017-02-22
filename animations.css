@@ -6,13 +6,14 @@
 }
 
 .animationContainer {
-  position: relative;
+  position: absolute;
 
   width: 600px;
   height: 400px;
+  bottom: -200px;
 
   animation-name: moveUp;
-  animation-duration: 1s;
+  animation-duration: 4s;
   animation-timing-function: linear;
   animation-direction: normal;
 }
@@ -34,7 +35,7 @@
   border-radius: 75px;
 
   animation-name: moveRight;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-timing-function: linear;
   animation-direction: forwards;
 }
@@ -43,4 +44,9 @@
   100% {
     transform: translateX(500px);
   }
+}
+
+@keyframes fade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
