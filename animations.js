@@ -11,14 +11,11 @@ function startAnimation() {
   container.appendChild(animation);
   document.querySelector('.mainDiv').appendChild(container);
 
-  animation.addEventListener('animationend', function(event) {
-    event.target.parentNode.parentNode.removeChild(event.target.parentNode);
-  });
-
   return animation;
 }
 
 function initializeGame() {
+  let score = 0;
   let mouseDown = false;
 
   document.addEventListener('mousedown', function() {
@@ -69,7 +66,15 @@ function initializeGame() {
 
         document.querySelector('.mainDiv').appendChild(halfFruitUp);
 
+        score++;
+        updateScore();
+
       }
     });
+
+    function updateScore() {
+      document.querySelector('.score').innerHTML = `Score: ${score}`;
+
+    }
   }
 }
