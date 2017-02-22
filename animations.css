@@ -96,15 +96,11 @@
   animation-duration: 5s;
 }
 
-
-
-
 @keyframes slicedUp {
   100% {
     transform: translateY(-600px) rotate3d(1,1,1,1240deg);
   }
 }
-
 
 @keyframes slicedDown {
   100% {
@@ -120,8 +116,6 @@
     transform: translateY(0px);
   }
 }
-
-
 
 .orange {
 	position:relative;
@@ -162,8 +156,6 @@
 	border-left-color:darkgreen;
 	border-radius:0 50%;
 }
-
-
 
 .lemon {
 	position:relative;
@@ -208,8 +200,6 @@
 	box-shadow:-.25em 0 0 brown;
 	transform:rotate(45deg);
 }
-
-
 
 .watermelon {
 	position:relative;
@@ -281,8 +271,6 @@
 	border-radius:50% 0;
 	box-shadow:-.25em 0 0 brown;
 }
-
-
 
 .animation {
   position: relative;
